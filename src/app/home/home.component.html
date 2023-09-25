@@ -1,0 +1,39 @@
+<div><p>home works!</p>
+<h3><img [src]="imageURL" width="200" alt="logo" [alt]="alternative">
+ Our company : {{ name }} 
+</h3>
+New name : <input type="text" [(ngModel)]="name"/>
+</div>
+<div>
+    <br/>
+</div>
+<div *ngFor="let todo of todos">
+    <div>
+    Title : {{todo.title}} 
+    - - 
+    <span *ngIf="todo.done ; else crossImage "> <img
+        src="https://e7.pngegg.com/pngimages/983/597/png-clipart-hanoi-truemiscellaneous-angle.png" width="30" alt="True"/></span>
+         
+    </div>
+</div>
+<button (click)="change()" >Change</button>
+<ng-template #crossImage>
+    <img src="https://www.rawshorts.com/freeicons/wpcontent/uploads/2017/01/red_prodpictxmark_2_1484336301-1.png" width="20"
+   alt="False"/>
+   </ng-template>
+<div [ngStyle]="{backgroundColor: theme}"  [ngClass]="{'bg-dark': theme==='black','bg-not-dark' : theme !=='black'}">
+<div>
+    Theme : <select [(ngModel)]="theme">
+        <option value="White">Default</option>
+        <option value="grey">Light</option>
+        <option value="black">Dark</option>
+     </select> 
+</div>
+    <div [ngSwitch]="theme">
+    <div *ngSwitchCase="'white'"> background : White</div>
+    <div *ngSwitchCase="'grey'"> background : Grey</div>
+    <div *ngSwitchCase="'black'"> background : Black </div>
+</div>
+</div>
+
+    

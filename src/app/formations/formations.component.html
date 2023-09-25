@@ -1,0 +1,25 @@
+<div>
+    <table border="1">
+    <thead>
+    <tr> 
+    <th> Sujet </th>
+    <th> Volume </th>
+    <th> Prix </th>
+    <th> Lieu </th>
+    <th> Date </th>
+    <th> Inscription ouverte </th>
+    </tr>
+    </thead> 
+    <tbody>
+    <tr *ngFor="let p of planning"> 
+    <td>{{ p.sujet | lowercase }}</td>
+    <td>{{ p.volume | number:'1.1-2' }}</td>
+    <td>{{ p.prix | currency:'TND' }}</td>
+    <td>{{ p.lieu | slice: -13 | titlecase }}</td>
+    <td>{{ p.date | datePipe }}</td>
+    <td>{{ (p.ouverte ? 'En cours' : 'Fermée') | uppercase }}</td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+   
